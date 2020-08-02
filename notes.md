@@ -15,7 +15,7 @@ Recommend
  - comment
 
 Brand
- - belongs_to :categories
+ - belongs_to :category
  - has_many :recommends
  - has_many :users, through: :recommends
  - name
