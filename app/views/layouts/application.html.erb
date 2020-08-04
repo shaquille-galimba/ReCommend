@@ -10,6 +10,11 @@
   </head>
 
   <body>
+		<div class="navbar-header">
+			<% if logged_in? %>
+				<%= link_to "Logout", logout_path, method: 'delete' %>
+			<% end %>
+		</div>
     <%= yield %>
   </body>
 </html>
