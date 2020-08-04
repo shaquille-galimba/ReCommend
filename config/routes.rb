@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	root 'application#welcome'
 	get '/login' => 'sessions#new'
 	post '/login' => 'sessions#create'
+	delete '/logout' => 'sessions#destroy'
   resources :categories
   resources :brands
   resources :recommends
