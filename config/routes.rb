@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	root 'application#welcome'
-	get '/login' => 'session#new'
+	get '/login' => 'sessions#new'
+	post '/login' => 'sessions#create'
   resources :categories
   resources :brands
   resources :recommends
