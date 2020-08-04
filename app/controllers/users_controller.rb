@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+		require_logged_in
+	end
+
 	def new
 		@user = User.new
 	end
