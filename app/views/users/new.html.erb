@@ -1,5 +1,11 @@
 <h1>Sign up page</h1>
 
+<% if @user.errors.any? %>
+ <% @user.errors.full_messages.each do |message| %>
+ 	<li><%= message %></li>
+	<% end %>
+<% end %>
+
 <div>
 	<%= form_for @user do |f| %>
 		<div>
@@ -26,6 +32,7 @@
 			<%= f.label :password_confirmation %>
 			<%= f.password_field :password_confirmation %>
 		</div>
+		<br>
 		<%= f.submit 'Sign up' %>
 	<% end %>
 </div>
