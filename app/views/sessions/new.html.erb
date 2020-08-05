@@ -1,7 +1,9 @@
-<h1>Login Page</h1>
-
 <div>
-	<%= form_for :user do |f| %>
+	<h1>Welcome to Recommend!</h1>
+	<br>
+
+	<div>
+		<%= form_for :user do |f| %>
 		<div>
 			<%= f.label :username %>
 			<%= f.text_field :username %>
@@ -13,7 +15,13 @@
 		</div>
 		<br>
 		<div>
-			<%= f.submit "Login" %>
+			<%= f.submit "Log in", class: "button button-blue" %>
 		</div>
-	<% end %>
+		<% end %>
+	</div>
+	<br>
+	<div>
+		<%= link_to "Log in with Google", '/auth/google_oauth2', class: "button button-white" %>
+	</div>
+
 </div>
