@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root 'recommends#index'
+	root 'application#welcome'
 	get '/signup' => 'users#new'
 	post '/signup' => 'users#create'
 	get '/login' => 'sessions#new'
