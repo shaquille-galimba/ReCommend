@@ -10,15 +10,20 @@
   </head>
 
   <body>
-		<div class="navbar-header">
-			<% if logged_in? %>
-				<%= link_to "Logout", logout_path, method: 'delete' %>
-			<% else %>
-				<%= link_to "Sign up", signup_path %>
-				<%= link_to "Log in", login_path %>
-				<%= link_to "Log in with Google", '/auth/google_oauth2' %>
-			<% end %>
+		<div class="navbar">
+			<ul>
+				<% if logged_in? %>
+				<li><%= link_to "Logout", logout_path, method: 'delete' %></li>
+				<% else %>
+				<li><%= link_to "Sign up", signup_path %></li>
+				<li><%= link_to "Log in", login_path %></li>
+				<li><%= link_to "Log in with Google", '/auth/google_oauth2' %></li>
+				<% end %>
+			</ul>
 		</div>
-    <%= yield %>
+		<div class="wrapper">
+			<%= yield %>
+
+		</div>
   </body>
 </html>
