@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create(first_name: "First", last_name: "Last", username: "User", password: "Password")
-shaq = User.create(first_name: "Shaq", last_name: "Galimba", username: "ShaqRiver", password: "Password")
-extra = User.create(first_name: "Extra", last_name: "Extra", username: "TestExtra", password: "Password")
+user = User.create(username: "User", email: "user@example.com" password: "Password")
+shaq = User.create(username: "ShaqRiver", email: "shaqriver@example.com" password: "Password")
+extra = User.create(username: "TestExtra", email: "test@example.com" password: "Password")
 
 dnd = Category.create(name: "D&D Show")
 game = Category.create(name: "Game")
