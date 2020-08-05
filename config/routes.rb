@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 	get '/login' => 'sessions#new'
 	post '/login' => 'sessions#create'
 	delete '/logout' => 'sessions#destroy'
+
+	#omniauth callback route
+	get "/auth/:provider/callback" => "sessions#omniauth"
   resources :categories
   resources :brands
   resources :recommends

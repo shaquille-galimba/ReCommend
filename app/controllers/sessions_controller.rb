@@ -18,4 +18,14 @@ class SessionsController < ApplicationController
 		session.delete :user_id
 		redirect_to login_path
 	end
+
+	def omniauth
+
+	end
+
+	private
+
+	def auth
+		request.env['omniauth.auth']
+	end
 end
