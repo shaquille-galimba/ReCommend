@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
 		return redirect_to login_path unless logged_in?
 	end
 
-	def welcome
-
+	def index
+		if logged_in?
+			redirect_to user_path(current_user)
+		else
+			redirect_to login_path
+		end
 	end
 
 end
