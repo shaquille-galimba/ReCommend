@@ -1,5 +1,6 @@
 <% @recommends.each do |recommend| %>
-	<li>
-		<%= recommend.comment %>
-	</li>
+	<ul class="lists">
+		<h2><%= recommend.user_name %> recommends <%= recommend.brand_name %></h2>
+		<p><%= recommend.comment %></p>
+	</ul>
 <% end %>
