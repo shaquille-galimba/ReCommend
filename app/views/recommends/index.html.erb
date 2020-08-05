@@ -1,7 +1,4 @@
-<h1>Welcome to ReCommend!</h1>
-<% if !logged_in? %>
-	<h3><%= link_to "Log in", login_path, class: "links" %> or <%= link_to "Sign up", signup_path, class: "links" %> to make your first recommendation!</h3>
-<% end %>
+<h1>Welcome to Recommend!</h1>
 <br>
 <% @recommends.each do |recommend| %>
 	<ul class="lists">
