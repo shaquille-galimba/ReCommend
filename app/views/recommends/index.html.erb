@@ -1,3 +1,5 @@
+<h1>Welcome to ReCommend!</h1>
+<br>
 <% @recommends.each do |recommend| %>
 	<ul class="lists">
 		<h2><%= link_to recommend.user_name, user_path(recommend.user), class: "links" %> recommends <%= recommend.brand_name %></h2>
