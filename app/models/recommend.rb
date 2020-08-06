@@ -1,6 +1,7 @@
 class Recommend < ApplicationRecord
   belongs_to :user
   belongs_to :brand
+	accepts_nested_attributes_for :brand
 
 	scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
 
