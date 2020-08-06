@@ -14,6 +14,6 @@ class Recommend < ApplicationRecord
 	end
 
 	def category_name
-		brand.category.name
+		brand.category_name
 	end
 end
