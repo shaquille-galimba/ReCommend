@@ -6,7 +6,11 @@ class RecommendsController < ApplicationController
 	end
 
 	def create
-		
+
+	end
+
+	def show
+		@recommend = Recommend.find_by(id: params[:id])
 	end
 
 	def index
