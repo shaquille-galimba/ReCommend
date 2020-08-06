@@ -1,2 +1,4 @@
-<h2><%= link_to recommend.user_name, user_path(recommend.user), class: "links" %>: <%= recommend.category_name %> - <%= link_to recommend.brand_name, brand_path(recommend.brand), class: "links" %></h2>
-<p><%= recommend.comment %></p>
+<div class="lists">
+	<h2><%= link_to recommend.user_name, user_path(recommend.user), class: "links" %>: <%= recommend.category_name %> - <%= link_to recommend.brand_name, brand_path(recommend.brand), class: "links" %></h2>
+	<p><%= recommend.comment %></p>
+</div>
