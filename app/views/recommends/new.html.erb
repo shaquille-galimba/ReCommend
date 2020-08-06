@@ -1,0 +1,28 @@
+<h1>New recommendation!</h1>
+
+<%= form_for @recommend do |f| %>
+	<div>
+		<%= f.fields_for :brand do |b| %>
+			<div>
+				<%= b.label :name, "Brand" %>
+				<%= b.text_field :name %>
+			</div>
+			<br>
+			<div>
+				<%= b.fields_for :category do |c| %>
+				<%= c.label :name, "Category" %>
+				<%= c.text_field :name %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<br>
+	<div>
+		<%= f.label :comment %>
+		<%= f.text_area :comment %>
+	</div>
+	<br>
+	<div>
+		<%= f.submit "Recommend" %>
+	</div>
+<% end %>
