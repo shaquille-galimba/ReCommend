@@ -12,4 +12,8 @@ class Recommend < ApplicationRecord
 	def brand_name
 		brand.name
 	end
+
+	def category_name
+		brand.category.name
+	end
 end
