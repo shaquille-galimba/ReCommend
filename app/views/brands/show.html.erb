@@ -1,1 +1,10 @@
 <h1><%= @brand.name %></h1>
+<p>(<%= @brand.category.name %>)</p>
+<h1>Recommendations</h1>
+<br>
+<% @brand.recommends.each do |recommend| %>
+	<ul class="lists">
+		<h2><%= link_to recommend.user_name, user_path(recommend.user), class: "links" %></h2>
+		<p><%= recommend.comment %></p>
+	</ul>
+<% end %>
