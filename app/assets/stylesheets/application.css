@@ -176,3 +176,11 @@
   background: transparent;
   color: #00BCE1;
 }
+
+.alert {
+	color: red;
+}
+
+.notice {
+	color: blue;
+}
