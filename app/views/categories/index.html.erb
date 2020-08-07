@@ -1,0 +1,10 @@
+<h1>All categories</h1>
+<br>
+<% @categories.each do |category| %>
+	<div class="lists">
+		<h2><%= category.name %></h2>
+		<% category.brands.most_popular.each do |brand| %>
+			<li><%= brand.name %> (<%= pluralize(brand.users.count, "recommend") %>)</li>
+		<% end %>
+	</div>
+<% end %>

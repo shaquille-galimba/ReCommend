@@ -4,6 +4,8 @@ class Brand < ApplicationRecord
 	has_many :users, through: :recommends
 	accepts_nested_attributes_for :category
 
+	scope :most_popular, -> {joins(:users).group('brands.id').order('count(brands.id) desc').limit(3)}
+
 	def category_name
 		category.name
 	end
