@@ -1,3 +1,8 @@
 <h1>Welcome to Recommend!</h1>
 <br>
-<%= render partial: "recommend", collection: @recommends %>
+<% @recommends.each do |recommend| %>
+	<div class="lists">
+		<%= render partial: "recommend", locals: {recommend: recommend} %>
+		<%= button_to "View", recommend_path(recommend), method: "get" %>
+	</div>
+<% end %>
