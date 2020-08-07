@@ -3,7 +3,7 @@
 <% @categories.each do |category| %>
 	<div class="lists">
 		<h2><%= category.name %></h2>
-		<% category.brands.most_popular.each do |brand| %>
+		<% category.brands.top_three.each do |brand| %>
 			<li>
 				<strong>
 					<%= link_to brand.name, brand_path(brand), class: "links" %>
