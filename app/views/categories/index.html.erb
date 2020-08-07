@@ -4,7 +4,15 @@
 	<div class="lists">
 		<h2><%= category.name %></h2>
 		<% category.brands.most_popular.each do |brand| %>
-			<li><%= brand.name %> (<%= pluralize(brand.users.count, "recommend") %>)</li>
+			<li>
+				<strong>
+					<%= link_to brand.name, brand_path(brand), class: "links" %>
+				</strong>
+				<div>
+					(<%= pluralize(brand.users.count, "recommend") %>)
+				</div>
+			</li>
+			<br>
 		<% end %>
 	</div>
 <% end %>
