@@ -6,6 +6,7 @@ class Brand < ApplicationRecord
 
 	scope :most_popular, -> {joins(:users).group('brands.id').order('count(brands.id) desc')}
 	scope :top_three, -> {joins(:users).group('brands.id').order('count(brands.id) desc').limit(3)}
+	# scope :categorize, -> {joins(:category).order('categories.id')}
 
 	def category_name
 		category.name
