@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 			@brands = @category.brands.most_popular
 		else
 			flash[:alert] = "Category not found"
-			redirect_to root_path
+			redirect_to categories_path
 		end
 	end
 end

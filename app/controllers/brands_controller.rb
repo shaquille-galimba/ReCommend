@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
 		@brand = Brand.find_by(id: params[:id])
 		if !@brand
 			flash[:alert] = "Brand not found"
-			redirect_to root_path
+			redirect_to brands_path
 		end
 	end
 

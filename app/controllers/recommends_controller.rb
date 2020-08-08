@@ -29,7 +29,7 @@ class RecommendsController < ApplicationController
 				@recommends = user.recommends
 			else
 				flash[:alert] = "User not found"
-				redirect_to root_path
+				redirect_to user_path(current_user)
 			end
 		else
 			@recommends = Recommend.all
