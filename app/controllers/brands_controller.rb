@@ -9,6 +9,7 @@ class BrandsController < ApplicationController
 	end
 
 	def index
-		@brands = Brand.all
+		# @brands = Brand.all
+		@categories = Category.all
 	end
 end

@@ -1,12 +1,4 @@
 <h2><%= @category.name %></h2>
 <% @brands.each do |brand| %>
-	<li>
-		<strong>
-			<%= link_to brand.name, brand_path(brand), class: "links" %>
-		</strong>
-		<div>
-			(<%= pluralize(brand.users.count, "recommend") %>)
-		</div>
-	</li>
-	<br>
+	<%= render partial: "brands/brands", locals: {brand: brand} %>
 <% end %>
