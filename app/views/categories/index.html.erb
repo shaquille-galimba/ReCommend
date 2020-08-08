@@ -2,7 +2,7 @@
 <br>
 <% @categories.each do |category| %>
 	<div class="lists">
-		<h2><%= category.name %></h2>
+		<h2><%= link_to category.name, category_path(category), class: "links" %></h2>
 		<% category.brands.top_three.each do |brand| %>
 			<li>
 				<strong>
