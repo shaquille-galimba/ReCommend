@@ -25,8 +25,7 @@ class RecommendsController < ApplicationController
 
 	def index
 		if params[:user_id]
-			user = User.find_by_id(params[:user_id])
-			if user
+			if user = User.find_by_id(params[:user_id])
 				@recommends = user.recommends
 			else
 				flash[:alert] = "User not found"
