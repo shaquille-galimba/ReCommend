@@ -21,7 +21,17 @@ class RecommendsController < ApplicationController
 	end
 
 	def index
-		@recommends = Recommend.all
+		if params[:user_id]
+			user = User.find_by_id(params[:user_id])
+			if user
+				@recommends = user.recommends
+			else
+				flash[:alert] = "User not found"
+				redirect_to root_path
+			end
+		else
+			@recommends = Recommend.all
+		end
 	end
 
 	private
