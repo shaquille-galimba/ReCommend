@@ -5,8 +5,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-		@category = Category.find_by_id(params[:id])
-		if @category
+		if @category = Category.find_by_id(params[:id])
 			@brands = @category.brands.most_popular
 		else
 			flash[:alert] = "Category not found"

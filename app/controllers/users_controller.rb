@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+	skip_before_action :require_login, only: [:new, :create]
 
 	def index
-		require_logged_in
 	end
 
 	def new
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		require_logged_in
 		@user = User.find_by(id: params[:id])
 	end
 

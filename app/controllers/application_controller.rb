@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 	helper_method :current_user, :logged_in?
+	before_action :require_login
+
 
 	def current_user
 		@current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
@@ -9,16 +11,13 @@ class ApplicationController < ActionController::Base
 		!!session[:user_id]
 	end
 
-	def require_logged_in
-		return redirect_to login_path unless logged_in?
-	end
+	private
 
-	def index
-		if logged_in?
-			redirect_to user_path(current_user)
-		else
-			redirect_to login_path
-		end
-	end
+	def require_login
+    unless logged_in?
+      flash[:alert] = "Log in or sign up to access that page"
+      redirect_to login_path # halts request cycle
+    end
+  end
 
 end
