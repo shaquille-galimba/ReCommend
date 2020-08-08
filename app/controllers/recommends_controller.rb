@@ -7,8 +7,11 @@ class RecommendsController < ApplicationController
 	end
 
 	def create
-		@recommend = Recommend.new(recommend_params)
+		@recommend = Recommend.new(comment: recommend_params[:comment])
 		@recommend.user = current_user
+		brand = @recommend.brand = Brand.find_or_create_by(name: recommend_params[:brand_attributes][:name])
+		brand.category = Category.find_or_create_by(name: recommend_params[:brand_attributes][:category_attributes][:name]) unless brand.category
+
 		if @recommend.save
 			redirect_to recommend_path(@recommend)
 		else
