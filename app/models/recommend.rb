@@ -4,7 +4,7 @@ class Recommend < ApplicationRecord
 	accepts_nested_attributes_for :brand
 	delegate :category, :to => :brand
 
-	scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
+	# scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
 
 	def user_name
 		user.username
