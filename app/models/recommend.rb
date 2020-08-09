@@ -5,6 +5,7 @@ class Recommend < ApplicationRecord
 	delegate :category, :to => :brand
 
 	# scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
+	scope :latest, -> { order("created_at DESC") }
 
 	def user_name
 		user.username
