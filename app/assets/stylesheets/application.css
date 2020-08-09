@@ -55,7 +55,7 @@
 
   h2 {
     border-bottom: 2px solid #ccc;
-    font-size: 26px;
+    font-size: 30px;
     line-height: 36px;
     margin-bottom: 8px;
   }
@@ -105,8 +105,9 @@
 }
 
 .lists {
-	padding-bottom: 20px;
+	padding: 10px 5px;
 	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 .lists:hover {
@@ -148,6 +149,14 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.mini ul {
+	border-radius: 4px;
+}
+
+.mini li a {
+	padding: 7px 8px;
 }
 
 /* Change the link color to #111 (black) on hover */
