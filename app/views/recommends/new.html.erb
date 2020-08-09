@@ -1,6 +1,6 @@
-<% if @recommend.brand %>
-	<h1>Recommend <%= @recommend.brand.name %></h1>
-	<strong>Category: <%= @recommend.brand.category_name %></strong>
+<% if @brand %>
+	<h1>Recommend <%= @brand.name %></h1>
+	<strong>Category: <%= @brand.category_name %></strong>
 <% else %>
 	<h1>New recommendation!</h1>
 <% end %>
@@ -18,10 +18,10 @@
 
 
 <%= form_for([@brand, @recommend]) do |f| %>
-	<% if @brand %>
-		<%= f.hidden_field :brand_id %>
-	<% else %>
-		<%= f.fields_for :brand do |b| %>
+	<%= f.fields_for :brand do |b| %>
+		<% if @brand %>
+			<%= f.hidden_field :brand_id %>
+		<% else %>
 			<div>
 				<div>
 					<%= b.label :name, "Brand" %>

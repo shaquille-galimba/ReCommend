@@ -15,8 +15,7 @@ class RecommendsController < ApplicationController
 	end
 
 	def create
-		@recommend = Recommend.new(comment: recommend_params[:comment])
-		@recommend.user = current_user
+		@recommend = current_user.recommends.build(comment: recommend_params[:comment])
 		if params[:brand_id]
 			@recommend.brand_id = recommend_params[:brand_id]
 		else
