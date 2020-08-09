@@ -1,9 +1,17 @@
 class RecommendsController < ApplicationController
 
 	def new
-		require_logged_in
-		@recommend = Recommend.new
-		@recommend.build_brand.build_category
+		if params[:brand_id]
+			if @brand = Brand.find_by_id(params[:brand_id])
+				@recommend = @brand.recommends.build
+			else
+				flash[:alert] = "Brand not found"
+				redirect_to brands_path
+			end
+		else
+			@recommend = Recommend.new
+			@recommend.build_brand.build_category
+		end
 	end
 
 	def create
