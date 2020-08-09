@@ -16,34 +16,43 @@
 	</div>
 <% end %>
 
+<% if @brand %>
+	<%= form_for([@brand, @recommend]) do |f| %>
+		<%= f.hidden_field :brand_id %>
+		<div>
+			<%= f.label :comment %>
+			<%= f.text_area :comment %>
+		</div>
+		<br>
+		<div>
+			<%= f.submit "Recommend" %>
+		</div>
+	<% end %>
 
-<%= form_for([@brand, @recommend]) do |f| %>
-	<%= f.fields_for :brand do |b| %>
-		<% if @brand %>
-			<%= f.hidden_field :brand_id %>
-		<% else %>
+<% else %>
+	<%= form_for @recommend do |f| %>
+		<%= f.fields_for :brand do |b| %>
 			<div>
-				<div>
-					<%= b.label :name, "Brand" %>
-					<%= b.text_field :name %>
-				</div>
-				<br>
-				<div>
-					<%= b.fields_for :category do |c| %>
-					<%= c.label :name, "Category" %>
-					<%= c.text_field :name %>
-					<% end %>
-				</div>
+				<%= b.label :name, "Brand" %>
+				<%= b.text_field :name %>
 			</div>
 			<br>
+			<div>
+				<%= b.fields_for :category do |c| %>
+				<%= c.label :name, "Category" %>
+				<%= c.text_field :name %>
+				<% end %>
+			</div>
+
+			<br>
+			<div>
+				<%= f.label :comment %>
+				<%= f.text_area :comment %>
+			</div>
+			<br>
+			<div>
+				<%= f.submit "Recommend" %>
+			</div>
 		<% end %>
 	<% end %>
-	<div>
-		<%= f.label :comment %>
-		<%= f.text_area :comment %>
-	</div>
-	<br>
-	<div>
-		<%= f.submit "Recommend" %>
-	</div>
 <% end %>
