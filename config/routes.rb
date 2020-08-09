@@ -10,9 +10,7 @@ Rails.application.routes.draw do
 
 	#omniauth callback route
 	get "/auth/:provider/callback" => "sessions#omniauth"
-  resources :categories do
-  	resources :recommends, only: [:new, :create]
-  end
+  resources :categories
   resources :brands do
   	resources :recommends, only: [:new, :create]
   end
