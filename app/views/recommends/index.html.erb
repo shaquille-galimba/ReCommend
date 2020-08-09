@@ -4,9 +4,11 @@
 	<div class="lists">
 		<h2><%= link_to recommend.user_name, user_path(recommend.user), class: "links" %></h2>
 		<%= render partial: "recommend", locals: {recommend: recommend} %>
-		<div>
-			<%= button_to "View", recommend_path(recommend), method: "get" %>
-			<%= button_to "Recommend", new_brand_recommend_path(recommend.brand), method: "get" %>
+		<div class="navbar mini">
+			<ul>
+				<li><%= link_to "View", recommend_path(recommend) %></li>
+				<li><%= link_to "Recommend", new_brand_recommend_path(recommend.brand) %></li>
+			</ul>
 		</div>
 	</div>
 <% end %>
