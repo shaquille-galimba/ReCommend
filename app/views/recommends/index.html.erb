@@ -6,9 +6,7 @@
 		<%= render partial: "recommend", locals: {recommend: recommend} %>
 		<div>
 			<%= button_to "View", recommend_path(recommend), method: "get" %>
-			<% if recommend.user != current_user %>
-				<%= button_to "Recommend", new_brand_recommend_path(recommend.brand), method: "get" %>
-			<% end %>
+			<%= button_to "Recommend", new_brand_recommend_path(recommend.brand), method: "get" %>
 		</div>
 	</div>
 <% end %>
