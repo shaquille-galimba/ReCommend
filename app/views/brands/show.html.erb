@@ -5,6 +5,7 @@
 		<li><%= link_to "Recommend", new_brand_recommend_path(@brand) %></li>
 	</ul>
 </div>
+<br>
 <h1>Recommendations</h1>
 <% @brand.recommends.each do |recommend| %>
 	<ul class="lists">
