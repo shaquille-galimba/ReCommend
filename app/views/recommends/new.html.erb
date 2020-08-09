@@ -1,19 +1,10 @@
 <% if @brand %>
 	<h1>Recommend <%= @brand.name %></h1>
 	<strong>Category: <%= @brand.category_name %></strong>
+<% elsif @category %>
+	<h1><%= @category.name %> recommendation</h1>
 <% else %>
 	<h1>New recommendation!</h1>
-<% end %>
-
-<% if @recommend.errors.any? %>
-	<div id="error_explanation">
-		<h3><%= pluralize(@recommend.errors.count, "error") %> prohibited this recommend from being saved:</h3>
-		<ul>
-			<% @recommend.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
 <% end %>
 
 <% if @brand %>
@@ -28,7 +19,25 @@
 			<%= f.submit "Recommend" %>
 		</div>
 	<% end %>
-
+<% elsif @category %>
+	<%= form_for([@category, @recommend]) do |f| %>
+		<%= f.fields_for :brand do |b| %>
+		<%= b.hidden_field :category_id %>
+			<div>
+				<%= b.label :name, "Brand" %>
+				<%= b.text_field :name %>
+			</div>
+			<br>
+		<% end %>
+		<div>
+			<%= f.label :comment %>
+			<%= f.text_area :comment %>
+		</div>
+		<br>
+		<div>
+			<%= f.submit "Recommend" %>
+		</div>
+	<% end %>
 <% else %>
 	<%= form_for @recommend do |f| %>
 		<%= f.fields_for :brand do |b| %>

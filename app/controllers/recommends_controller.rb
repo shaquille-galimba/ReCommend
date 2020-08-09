@@ -8,6 +8,13 @@ class RecommendsController < ApplicationController
 				flash[:alert] = "Brand not found"
 				redirect_to brands_path
 			end
+		elsif params[:category_id]
+			if @category = Category.find_by_id(params[:category_id])
+				@recommend = @category.brands.build.recommends.build
+			else
+				flash[:alert] = "Category not found"
+				redirect_to categories_path
+			end
 		else
 			@recommend = Recommend.new
 			@recommend.build_brand.build_category
@@ -18,6 +25,9 @@ class RecommendsController < ApplicationController
 		@recommend = current_user.recommends.build(comment: recommend_params[:comment])
 		if params[:brand_id]
 			@recommend.brand_id = recommend_params[:brand_id]
+		elsif params[:category_id]
+			brand = @recommend.brand = Brand.find_or_create_by(name: recommend_params[:brand_attributes][:name])
+			brand.category = Category.find_by_id(recommend_params[:brand_attributes][:category_id])
 		else
 			brand = @recommend.brand = Brand.find_or_create_by(name: recommend_params[:brand_attributes][:name])
 			brand.category = Category.find_or_create_by(name: recommend_params[:brand_attributes][:category_attributes][:name]) unless brand.category
@@ -55,6 +65,7 @@ class RecommendsController < ApplicationController
 			:comment,
 			brand_attributes: [
 				:name,
+				:category_id,
 				category_attributes: [
 					:name
 				]
