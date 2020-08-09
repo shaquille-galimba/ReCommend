@@ -106,13 +106,13 @@
 
 .lists {
 	padding-bottom: 20px;
+	border: 1px solid #ccc;
 }
 
 .lists:hover {
   /* cursor: pointer; */
-  /* background-color: #f5f8fa; */
-	border-left: solid;
-	border-color: #fff;
+  background-color: #f5f8fa;
+	/* border-color: #fff; */
 }
 
 .links {
