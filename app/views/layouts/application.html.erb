@@ -14,7 +14,7 @@
 			<ul>
 				<% if logged_in? %>
 				<li><%= link_to "Home", recommends_path %></li>
-				<li><%= link_to current_user.username, user_path(current_user) %></li>
+				<li><%= link_to current_user.username, user_recommends_path(current_user) %></li>
 				<li style="float:right"><%= link_to "Logout", logout_path, method: 'delete' %></li>
 				<% end %>
 			</ul>
