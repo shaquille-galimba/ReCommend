@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	helper_method :current_user, :logged_in?
+	helper_method :current_user, :logged_in?, :authorize_user
 	before_action :require_login
 
 
@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
 
 	def logged_in?
 		!!session[:user_id]
+	end
+
+	def authorize_user(user)
+		unless user == current_user
+			flash[:alert] = "Authorization Error!"
+			redirect_to recommends_path
+		end
 	end
 
 	private
