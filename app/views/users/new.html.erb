@@ -7,7 +7,7 @@
 <% end %>
 <br>
 <div>
-	<%= form_for @user do |f| %>
+	<%= form_for @user, url: {action: "create"} do |f| %>
 		<div>
 			<%= f.label :email %>
 			<%= f.text_field :email %>
