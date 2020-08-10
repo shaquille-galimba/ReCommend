@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	skip_before_action :require_login, only: [:new, :create]
+	skip_before_action :require_login, only: [:new, :create, :omniauth]
 
 	def new
 		redirect_to user_path(current_user) if logged_in?
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 		end
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to user_path(@user)
+			redirect_to recommends_path
 		else
 			redirect_to login_path
 		end
