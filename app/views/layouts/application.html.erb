@@ -16,10 +16,6 @@
 				<li><%= link_to "Home", recommends_path %></li>
 				<li><%= link_to current_user.username, user_path(current_user) %></li>
 				<li style="float:right"><%= link_to "Logout", logout_path, method: 'delete' %></li>
-				<% else %>
-				<li><%= link_to "Sign up", signup_path %></li>
-				<li><%= link_to "Log in", login_path %></li>
-				<li><%= link_to "Log in with Google", '/auth/google_oauth2' %></li>
 				<% end %>
 			</ul>
 		</div>
