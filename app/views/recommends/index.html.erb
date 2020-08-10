@@ -10,11 +10,5 @@
 			<h2><%= link_to recommend.user_name, user_recommends_path(recommend.user), class: "links" %></h2>
 		<% end %>
 		<%= render partial: "recommend", locals: {recommend: recommend} %>
-		<div class="navbar mini">
-			<ul>
-				<li><%= link_to "View", recommend_path(recommend) %></li>
-				<li><%= link_to "Recommend", new_brand_recommend_path(recommend.brand) %></li>
-			</ul>
-		</div>
 	</div>
 <% end %>
