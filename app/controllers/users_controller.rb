@@ -20,6 +20,10 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find_by(id: params[:id])
+		if !@user
+			flash[:alert] = "User not found"
+			redirect_to recommends_path
+		end
 	end
 
 	def update
@@ -30,6 +34,10 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
+		if !@user
+			flash[:alert] = "User not found"
+			redirect_to recommends_path
+		end
 	end
 
 	private

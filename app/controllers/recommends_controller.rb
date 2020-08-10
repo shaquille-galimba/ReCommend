@@ -42,6 +42,10 @@ class RecommendsController < ApplicationController
 
 	def show
 		@recommend = Recommend.find_by(id: params[:id])
+		if !@recommend
+			flash[:alert] = "Recommendation not found"
+			redirect_to recommends_path
+		end
 	end
 
 	def index
