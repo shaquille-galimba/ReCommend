@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :brands do
   	resources :recommends, only: [:new, :create]
   end
-  resources :users do
+  resources :users, only: [:index, :show, :edit, :update, :delete] do
   	resources :recommends, only: [:index]
   end
 	resources :recommends
