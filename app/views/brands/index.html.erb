@@ -1,6 +1,8 @@
 <% @categories.each do |category| %>
 	<div class="lists">
-		<h2><%= link_to category.name, category_path(category), class: "links" %></h2>
+		<h1><%= link_to category.name, category_path(category), class: "links" %></h1>
+		<h2>Top three</h2>
+		<br>
 		<% category.brands.top_three.each do |brand| %>
 			<%= render partial: "brands", locals: {brand: brand} %>
 		<% end %>

@@ -61,6 +61,10 @@
     margin-bottom: 8px;
   }
 
+	h2 small {
+		font-size: 18px;
+	}
+
   h3 {
     font-size: 18px;
     line-height: 36px;

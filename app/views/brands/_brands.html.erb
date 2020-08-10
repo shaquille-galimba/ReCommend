@@ -1,9 +1,4 @@
 <li>
-	<strong>
-		<%= link_to brand.name, brand_path(brand), class: "links" %>
-	</strong>
-	<div>
-		(<%= pluralize(brand.users.count, "recommend") %>)
-	</div>
+	<h2><%= link_to brand.name, brand_path(brand), class: "links" %> <small><%= pluralize(brand.users.count, "recommend") %></small></h2>
 </li>
 <br>
