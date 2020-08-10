@@ -5,7 +5,7 @@
  	<li><%= message %></li>
 	<% end %>
 <% end %>
-
+<br>
 <div>
 	<%= form_for @user do |f| %>
 		<div>
@@ -30,4 +30,8 @@
 		<br>
 		<%= f.submit 'Sign up' %>
 	<% end %>
+</div>
+<br>
+<div>
+	<%= link_to "back to log in page", login_path, class: "links" %>
 </div>
