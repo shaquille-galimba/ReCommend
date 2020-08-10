@@ -158,7 +158,6 @@
 }
 
 .info {
-	float: right;
 	color: white;
 	padding: 7px 8px;
 }
@@ -226,4 +225,8 @@
 
 .field_with_errors input {
 	border: 2px solid red;
+}
+
+.right {
+	float: right;
 }

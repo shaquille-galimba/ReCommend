@@ -8,6 +8,6 @@
 	<ul>
 		<li><%= link_to "View", recommend_path(recommend) %></li>
 		<li><%= link_to "Recommend", new_brand_recommend_path(recommend.brand) %></li>
-		<div class="info"><%= pluralize(recommend.brand.users.count, "recommend") %></div>
+		<div class="info right"><%= pluralize(recommend.brand.users.count, "recommend") %></div>
 	</ul>
 </div>
