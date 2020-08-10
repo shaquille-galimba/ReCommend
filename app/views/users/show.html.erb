@@ -2,6 +2,9 @@
 <div class="navbar mini">
 	<ul>
 		<li><%= link_to "Recommendations", user_recommends_path(@user)%></li>
+		<% if @user == current_user %>
+			<li><%= link_to "Edit information", edit_user_path(@user) %></li>
+		<% end %>
 	</ul>
 </div>
 <br>
