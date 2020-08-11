@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 	skip_before_action :require_login, only: [:new, :create]
+	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-	def index
-	end
 
 	def new
 		@user = User.new
@@ -18,8 +17,17 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index
+	end
+
+	def show
+		if !@user
+			flash[:alert] = "User not found"
+			redirect_to recommends_path
+		end
+	end
+
 	def edit
-		@user = User.find_by(id: params[:id])
 		authorize_user(@user)
 		if !@user
 			flash[:alert] = "User not found"
@@ -28,21 +36,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user = User.find_by(id: params[:id])
 		@user.update(user_params)
 		redirect_to user_path(@user)
 	end
 
-	def show
-		@user = User.find_by(id: params[:id])
-		if !@user
-			flash[:alert] = "User not found"
-			redirect_to recommends_path
-		end
-	end
 
 	def destroy
-		@user = User.find_by(id: params[:id])
 		@user.destroy
 		session.delete :user_id
 		flash[:notice] = "Account successfully deleted"
@@ -53,5 +52,9 @@ class UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit(:email, :username, :password, :password_confirmation)
+	end
+
+	def set_user
+		@user = User.find_by(id: params[:id])
 	end
 end
