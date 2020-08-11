@@ -1,4 +1,5 @@
 class RecommendsController < ApplicationController
+	before_action :set_recommend, only: [:show, :edit, :update, :destroy]
 
 	def new
 		if params[:brand_id]
@@ -41,7 +42,6 @@ class RecommendsController < ApplicationController
 	end
 
 	def show
-		@recommend = Recommend.find_by(id: params[:id])
 		if !@recommend
 			flash[:alert] = "Recommendation not found"
 			redirect_to recommends_path
@@ -61,8 +61,17 @@ class RecommendsController < ApplicationController
 		end
 	end
 
+	def edit
+		authorize_user(@recommend.user)
+	end
+
+	def update
+		@recommend.update(recommend_params)
+		flash[:notice] = "Updated successfully"
+		redirect_to recommend_path(@recommend)
+	end
+
 	def destroy
-		@recommend = Recommend.find_by(id: params[:id])
 		@recommend.destroy
 		redirect_to recommends_path
 	end
@@ -81,5 +90,9 @@ class RecommendsController < ApplicationController
 				]
 			]
 		)
+	end
+
+	def set_recommend
+		@recommend = Recommend.find_by(id: params[:id])
 	end
 end
