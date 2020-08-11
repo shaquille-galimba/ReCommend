@@ -1,0 +1,13 @@
+<h1>Browse Users</h1>
+<%= form_tag("/users", method: "get") do %>
+	<%= label_tag :q, "Search users:" %>
+	<%= text_field_tag :q %>
+	<%= submit_tag "Search" %>
+<% end %>
+<br>
+
+<% @users.each do |user| %>
+	<div class="lists">
+		<%= link_to user.username, user_recommends_path(user), class: "links" %>
+	</div>
+<% end %>

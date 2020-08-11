@@ -6,4 +6,9 @@ class User < ApplicationRecord
 	has_many :recommends, dependent: :delete_all
 	has_many :brands, through: :recommends
 	has_many :categories, -> { distinct }, through: :brands
+
+	def self.search(params)
+		where("LOWER(username) LIKE ?", "%#{params}%")
+
+	end
 end
