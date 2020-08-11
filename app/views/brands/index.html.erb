@@ -1,10 +1,5 @@
-<% @categories.each do |category| %>
-	<div class="lists">
-		<h1><%= link_to category.name, category_path(category), class: "links" %></h1>
-		<h2>Top three</h2>
-		<br>
-		<% category.brands.top_three.each do |brand| %>
-			<%= render partial: "brands", locals: {brand: brand} %>
-		<% end %>
-	</div>
+<h1>Browse for brands</h1>
+
+<% @brands.each do |brand| %>
+	<%= render partial: "brands", locals: {brand: brand} %>
 <% end %>
