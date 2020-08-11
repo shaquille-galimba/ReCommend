@@ -8,7 +8,6 @@ class User < ApplicationRecord
 	has_many :categories, -> { distinct }, through: :brands
 
 	def self.search(params)
-		where("LOWER(username) LIKE ?", "%#{params}%")
-
+		where("LOWER(username) LIKE :term OR LOWER(email) LIKE :term", term: "%#{params}%")
 	end
 end
