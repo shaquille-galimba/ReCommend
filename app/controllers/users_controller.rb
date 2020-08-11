@@ -41,6 +41,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		@user = User.find_by(id: params[:id])
+		@user.destroy
+		session.delete :user_id
+		flash[:notice] = "Account successfully deleted"
+		redirect_to login_path
+	end
+
 	private
 
 	def user_params
