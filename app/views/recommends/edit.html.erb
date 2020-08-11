@@ -1,0 +1,11 @@
+<h1>Update your recommendation for <%= @recommend.brand_name %></h1>
+<%= form_for @recommend do |f| %>
+	<div>
+		<%= f.label :comment %>
+		<%= f.text_area :comment %>
+	</div>
+	<br>
+	<div>
+		<%= f.submit "Recommend" %>
+	</div>
+<% end %>
