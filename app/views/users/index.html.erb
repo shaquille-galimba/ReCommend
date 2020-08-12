@@ -8,6 +8,6 @@
 
 <% @users.each do |user| %>
 	<div class="lists">
-		<%= link_to user.username, user_recommends_path(user), class: "links" %>
+		<strong><%= link_to user.username, user_recommends_path(user), class: "links" %></strong>
 	</div>
 <% end %>
