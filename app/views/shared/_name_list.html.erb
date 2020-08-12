@@ -1,3 +1,8 @@
 <div class="lists">
-	<%= link_to zone.name, zone, class: "links" %> <small><%= pluralize(zone.recommends.count, "recommend") %></small>
+	<div>
+		<strong><%= link_to zone.name, zone, class: "links" %></strong> <small><%= pluralize(zone.recommends.count, "recommend")%></small>
+	</div>
+	<div>
+		<%= link_to "Recommend", path, class: "links" %>
+	</div>
 </div>
