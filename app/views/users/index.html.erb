@@ -8,6 +8,6 @@
 
 <% @users.each do |user| %>
 	<div class="lists">
-		<strong><%= link_to user.username, user_recommends_path(user), class: "links" %></strong>
+		<strong><%= link_to user.username, user_recommends_path(user), class: "links" %></strong> <small><%= pluralize(user.recommends.count, "recommendations")%></small>
 	</div>
 <% end %>
