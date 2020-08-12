@@ -1,9 +1,5 @@
 <h1>Browse Users</h1>
-<%= form_tag("/users", method: "get") do %>
-	<%= label_tag :q, "Search users:" %>
-	<%= text_field_tag :q %>
-	<%= submit_tag "Search" %>
-<% end %>
+<%= render partial: "shared/search", locals: {path: users_path}  %>
 <br>
 
 <% @users.each do |user| %>

@@ -1,16 +1,14 @@
 <% if @user %>
 	<h1><%= @user.username %></h1>
-	<div>
-		<li><%= link_to "Info", user_path(@user), class: "links" %></li>
+	<div class="navbar mini">
+		<ul>
+			<li><%= link_to "Info", user_path(@user)%></li>
+			<div class="info right"><%= render partial: "shared/search", locals: {path: user_recommends_path(@user)} %></div>
+		</ul>
 	</div>
 <% else %>
 	<h1>Welcome to Recommend!</h1>
-<% end %>
-<br>
-<%= form_tag("/recommends", method: "get") do %>
-	<%= label_tag :q, "Search for:" %>
-	<%= text_field_tag :q %>
-	<%= submit_tag "Search" %>
+	<%= render partial: "shared/search", locals: {path: recommends_path} %>
 <% end %>
 <br>
 <% @recommends.each do |recommend| %>
