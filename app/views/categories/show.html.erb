@@ -7,6 +7,6 @@
 <br>
 <div>
 	<% @brands.each do |brand| %>
-	<%= render partial: "brands/brands", locals: {zone: brand} %>
+	<%= render partial: "shared/name_list", locals: {zone: brand} %>
 	<% end %>
 </div>

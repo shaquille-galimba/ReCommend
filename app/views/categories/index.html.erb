@@ -1,5 +1,5 @@
 <h1>Browse for categories</h1>
 
 <% @categories.each do |category| %>
-	<%= render partial: "brands/brands", locals: {zone:category} %>
+	<%= render partial: "shared/name_list", locals: {zone:category} %>
 <% end %>
