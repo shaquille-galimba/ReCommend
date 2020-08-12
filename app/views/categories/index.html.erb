@@ -1,4 +1,10 @@
 <h1>Browse for categories</h1>
+<%= form_tag("/categories", method: "get") do %>
+	<%= label_tag :q, "Search for:" %>
+	<%= text_field_tag :q %>
+	<%= submit_tag "Search" %>
+<% end %>
+<br>
 
 <% @categories.each do |category| %>
 	<%= render partial: "shared/name_list", locals: {zone:category} %>
