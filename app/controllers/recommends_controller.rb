@@ -59,6 +59,10 @@ class RecommendsController < ApplicationController
 		else
 			@recommends = Recommend.latest
 		end
+
+		if params[:q] && !params[:q].empty?
+			@recommends = @recommends.search(params[:q].downcase)
+		end
 	end
 
 	def edit

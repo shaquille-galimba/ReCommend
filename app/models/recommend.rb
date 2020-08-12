@@ -7,6 +7,10 @@ class Recommend < ApplicationRecord
 	# scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
 	scope :latest, -> { order("created_at DESC") }
 
+	def self.search(params)
+		left_joins(:brand).left_joins(:user).where("LOWER(brands.name) LIKE :term OR LOWER(users.username) LIKE :term", term: "%#{params}%")
+	end
+
 	def user_name
 		user.username
 	end
