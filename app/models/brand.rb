@@ -12,5 +12,9 @@ class Brand < ApplicationRecord
 		category.name
 	end
 
+	def self.search(params)
+		left_joins(:category).where("LOWER(brands.name) LIKE :term OR LOWER(categories.name) LIKE :term", term: "%#{params}%")
+	end
+
 	# scope :list_by_category, -> (category) { where(category: category) }
 end

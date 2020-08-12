@@ -11,5 +11,8 @@ class BrandsController < ApplicationController
 	def index
 		@brands = Brand.most_popular
 		# @categories = Category.all
+		if params[:q] && !params[:q].empty?
+			@brands = @brands.search(params[:q].downcase)
+		end
 	end
 end

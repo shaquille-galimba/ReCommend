@@ -1,4 +1,10 @@
 <h1>Browse for brands</h1>
+<%= form_tag("/brands", method: "get") do %>
+	<%= label_tag :q, "Search for:" %>
+	<%= text_field_tag :q %>
+	<%= submit_tag "Search" %>
+<% end %>
+<br>
 
 <% @brands.each do |brand| %>
 	<%= render partial: "brands", locals: {brand: brand} %>
