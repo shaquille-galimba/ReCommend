@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
 	def index
-		@categories = Category.all
+		@categories = Category.most_popular
 	end
 
 	def show
