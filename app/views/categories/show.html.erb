@@ -5,8 +5,7 @@
 	</ul>
 </div>
 <br>
-<div>
-	<% @brands.each do |brand| %>
-	<%= render partial: "shared/name_list", locals: {zone: brand, path: new_brand_recommend_path(brand)} %>
-	<% end %>
-</div>
+
+<% @brands.each do |brand| %>
+<%= render partial: "shared/name_list", locals: {zone: brand, path: new_brand_recommend_path(brand)} %>
+<% end %>

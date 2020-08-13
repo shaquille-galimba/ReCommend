@@ -1,13 +1,14 @@
-<h1>Sign up page</h1>
+<div class="flexbox">
+	<h1>Sign up page</h1>
 
-<% if @user.errors.any? %>
- <% @user.errors.full_messages.each do |message| %>
- 	<li><%= message %></li>
+	<% if @user.errors.any? %>
+	<% @user.errors.full_messages.each do |message| %>
+	<li><%= message %></li>
 	<% end %>
-<% end %>
-<br>
-<div>
-	<%= form_for @user, url: {action: "create"} do |f| %>
+	<% end %>
+	<br>
+	<div class="form">
+		<%= form_for @user, url: {action: "create"} do |f| %>
 		<div>
 			<%= f.label :email %>
 			<%= f.text_field :email %>
@@ -28,10 +29,11 @@
 			<%= f.password_field :password_confirmation %>
 		</div>
 		<br>
-		<%= f.submit 'Sign up' %>
-	<% end %>
-</div>
-<br>
-<div>
-	<%= link_to "back to log in page", login_path, class: "links" %>
+		<%= f.submit 'Sign up', class: "btn button-blue" %>
+		<% end %>
+	</div>
+	<br>
+	<div>
+		<%= link_to "back to log in page", login_path, class: "links" %>
+	</div>
 </div>

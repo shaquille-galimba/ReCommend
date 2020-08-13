@@ -6,9 +6,11 @@
 <% else %>
 	<h1>New recommendation!</h1>
 <% end %>
+<br>
 
 <% if @brand %>
-	<%= form_for([@brand, @recommend]) do |f| %>
+	<div class="form">
+		<%= form_for([@brand, @recommend]) do |f| %>
 		<%= f.hidden_field :brand_id %>
 		<div>
 			<%= f.label :comment %>
@@ -16,18 +18,20 @@
 		</div>
 		<br>
 		<div>
-			<%= f.submit "Recommend" %>
+			<%= f.submit "Recommend", class: "btn button-blue" %>
 		</div>
-	<% end %>
+		<% end %>
+	</div>
 <% elsif @category %>
-	<%= form_for([@category, @recommend]) do |f| %>
+	<div class="form">
+		<%= form_for([@category, @recommend]) do |f| %>
 		<%= f.fields_for :brand do |b| %>
 		<%= b.hidden_field :category_id %>
-			<div>
-				<%= b.label :name, "Brand" %>
-				<%= b.text_field :name %>
-			</div>
-			<br>
+		<div>
+			<%= b.label :name, "Brand" %>
+			<%= b.text_field :name %>
+		</div>
+		<br>
 		<% end %>
 		<div>
 			<%= f.label :comment %>
@@ -35,33 +39,36 @@
 		</div>
 		<br>
 		<div>
-			<%= f.submit "Recommend" %>
+			<%= f.submit "Recommend", class: "btn button-blue" %>
 		</div>
-	<% end %>
-<% else %>
-	<%= form_for @recommend do |f| %>
-		<%= f.fields_for :brand do |b| %>
-			<div>
-				<%= b.label :name, "Brand" %>
-				<%= b.text_field :name %>
-			</div>
-			<br>
-			<div>
-				<%= b.fields_for :category do |c| %>
-				<%= c.label :name, "Category" %>
-				<%= c.text_field :name %>
-				<% end %>
-			</div>
-
-			<br>
-			<div>
-				<%= f.label :comment %>
-				<%= f.text_area :comment %>
-			</div>
-			<br>
-			<div>
-				<%= f.submit "Recommend" %>
-			</div>
 		<% end %>
-	<% end %>
+	</div>
+<% else %>
+	<div class="form">
+		<%= form_for @recommend do |f| %>
+		<%= f.fields_for :brand do |b| %>
+		<div>
+			<%= b.label :name, "Brand" %>
+			<%= b.text_field :name %>
+		</div>
+		<br>
+		<div>
+			<%= b.fields_for :category do |c| %>
+			<%= c.label :name, "Category" %>
+			<%= c.text_field :name %>
+			<% end %>
+		</div>
+
+		<br>
+		<div>
+			<%= f.label :comment %>
+			<%= f.text_area :comment %>
+		</div>
+		<br>
+		<div>
+			<%= f.submit "Recommend", class: "btn button-blue" %>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
 <% end %>

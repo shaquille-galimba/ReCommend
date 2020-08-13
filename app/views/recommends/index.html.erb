@@ -12,10 +12,10 @@
 <% end %>
 <br>
 <% @recommends.each do |recommend| %>
-	<div class="lists">
-		<% if !@user %>
-			<h2><%= link_to recommend.user_name, user_recommends_path(recommend.user), class: "links" %></h2>
-		<% end %>
-		<%= render partial: "recommend", locals: {recommend: recommend} %>
-	</div>
+<div class="lists">
+	<% if !@user %>
+	<h2><%= link_to recommend.user_name, user_recommends_path(recommend.user), class: "links" %></h2>
+	<% end %>
+	<%= render partial: "recommend", locals: {recommend: recommend} %>
+</div>
 <% end %>

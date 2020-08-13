@@ -1,29 +1,26 @@
-<div class="flexbox">
-	<h1>Welcome to Recommend!</h1>
-	<br>
+<h1>Welcome to Recommend!</h1>
+<br>
 
-	<div class="form">
-		<%= form_for :user do |f| %>
-		<div>
-			<%= f.label :username %>
-			<%= f.text_field :username %>
-		</div>
-		<br>
-		<div>
-			<%= f.label :password %>
-			<%= f.password_field :password %>
-		</div>
-		<br>
-		<div>
-			<%= f.submit "Log in", class: "btn button-blue" %>
-		</div>
-		<% end %>
-		<br>
-		<div>
-			<%= button_to "Log in with Google", '/auth/google_oauth2', class: "btn button-white" %>
-		</div>
-		<br>
-		<p>Don't have an account? <%= link_to "Sign up here.", signup_path, class: "links" %></p>
+<div class="form">
+	<%= form_for :user do |f| %>
+	<div>
+		<%= f.label :username %>
+		<%= f.text_field :username %>
 	</div>
-
+	<br>
+	<div>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+	<br>
+	<div>
+		<%= f.submit "Log in", class: "btn button-blue" %>
+	</div>
+	<% end %>
+	<br>
+	<div>
+		<%= button_to "Log in with Google", '/auth/google_oauth2', class: "btn button-white" %>
+	</div>
+	<br>
+	<p>Don't have an account? <%= link_to "Sign up here.", signup_path, class: "links" %></p>
 </div>
