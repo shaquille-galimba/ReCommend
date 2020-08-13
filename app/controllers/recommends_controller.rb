@@ -41,13 +41,6 @@ class RecommendsController < ApplicationController
 		end
 	end
 
-	def show
-		if !@recommend
-			flash[:alert] = "Recommendation not found"
-			redirect_to recommends_path
-		end
-	end
-
 	def index
 		if params[:user_id]
 			if @user = User.find_by_id(params[:user_id])
@@ -64,6 +57,14 @@ class RecommendsController < ApplicationController
 			@recommends = @recommends.search(params[:q].downcase)
 		end
 	end
+	
+	def show
+		if !@recommend
+			flash[:alert] = "Recommendation not found"
+			redirect_to recommends_path
+		end
+	end
+
 
 	def edit
 		authorize_user(@recommend.user)
