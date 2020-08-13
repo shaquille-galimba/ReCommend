@@ -50,14 +50,14 @@ class RecommendsController < ApplicationController
 				redirect_to user_path(current_user)
 			end
 		else
-			@recommends = Recommend.latest
+			@recommends = Recommend.latest.includes(:user, brand: :category)
 		end
 
 		if params[:q] && !params[:q].empty?
 			@recommends = @recommends.search(params[:q].downcase)
 		end
 	end
-	
+
 	def show
 		if !@recommend
 			flash[:alert] = "Recommendation not found"
