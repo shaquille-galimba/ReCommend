@@ -3,5 +3,12 @@
 <br>
 
 <% @categories.each do |category| %>
-	<%= render partial: "shared/name_list", locals: {zone:category, path: new_category_recommend_path(category)} %>
+<div class="lists">
+	<div>
+		<strong><%= link_to category.name, category, class: "links" %></strong>
+	</div>
+	<div>
+		<%= link_to "Recommend", new_category_recommend_path(category), class: "links" %>
+	</div>
+</div>
 <% end %>
