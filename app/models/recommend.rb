@@ -1,6 +1,6 @@
 class Recommend < ApplicationRecord
   belongs_to :user
-  belongs_to :brand
+  belongs_to :brand, counter_cache: true
 	accepts_nested_attributes_for :brand
 	delegate :category, :to => :brand
 
