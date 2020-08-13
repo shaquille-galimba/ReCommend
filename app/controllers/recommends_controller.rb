@@ -44,7 +44,7 @@ class RecommendsController < ApplicationController
 	def index
 		if params[:user_id]
 			if @user = User.find_by_id(params[:user_id])
-				@recommends = @user.recommends.latest
+				@recommends = @user.recommends.latest.includes(brand: :category)
 			else
 				flash[:alert] = "User not found"
 				redirect_to user_path(current_user)
