@@ -1,8 +1,8 @@
-<div>
+<div class="flexbox">
 	<h1>Welcome to Recommend!</h1>
 	<br>
 
-	<div>
+	<div class="form">
 		<%= form_for :user do |f| %>
 		<div>
 			<%= f.label :username %>
@@ -15,15 +15,15 @@
 		</div>
 		<br>
 		<div>
-			<%= f.submit "Log in", class: "button button-blue" %>
+			<%= f.submit "Log in", class: "btn button-blue" %>
 		</div>
 		<% end %>
+		<br>
+		<div>
+			<%= button_to "Log in with Google", '/auth/google_oauth2', class: "btn button-white" %>
+		</div>
+		<br>
+		<p>Don't have an account? <%= link_to "Sign up here.", signup_path, class: "links" %></p>
 	</div>
-	<br>
-	<div>
-		<%= link_to "Log in with Google", '/auth/google_oauth2', class: "button button-white" %>
-	</div>
-	<br>
-	<p>Don't have an account? <%= link_to "Sign up here.", signup_path, class: "links" %></p>
 
 </div>
