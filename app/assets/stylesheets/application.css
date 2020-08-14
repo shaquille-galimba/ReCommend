@@ -212,10 +212,13 @@
 	padding: 7px 8px;
 }
 
+.mini {
+	width: 100%;
+}
+
 
 .mini ul {
 	border-radius: 4px;
-	flex-grow: 4;
 }
 
 .mini li a {
