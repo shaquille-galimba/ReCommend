@@ -31,7 +31,7 @@ class RecommendsController < ApplicationController
 			brand.category = Category.find_by_id(recommend_params[:brand_attributes][:category_id])
 		else
 			category = Category.find_or_create_by(name: recommend_params[:brand_attributes][:category_attributes][:name])
-			@recommend.brand = category.brands.find_or_create_by(name: recommend_params[:brand_attributes][:name])
+			@recommend.brand = category.brands.find_or_initialize_by(name: recommend_params[:brand_attributes][:name])
 		end
 
 		if @recommend.save
