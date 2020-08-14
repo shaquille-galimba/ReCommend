@@ -1,10 +1,6 @@
 <h1>Sign up page</h1>
 
-<% if @user.errors.any? %>
-	<% @user.errors.full_messages.each do |message| %>
-		<li class="alert"><%= message %></li>
-	<% end %>
-<% end %>
+<%= render partial: "shared/errors", locals: {object: @user} %>
 <br>
 <div class="form">
 	<%= form_for @user, url: {action: "create"} do |f| %>

@@ -7,11 +7,7 @@
 	<h1>New recommendation!</h1>
 <% end %>
 <br>
-<% if @recommend.errors.any? %>
-	<% @recommend.errors.full_messages.each do |message| %>
-		<li class="alert"><%= message %></li>
-	<% end %>
-<% end %>
+	<%= render partial: "shared/errors", locals: {object: @recommend} %>
 <br>
 
 <% if @brand %>
