@@ -3,6 +3,7 @@ class Recommend < ApplicationRecord
   belongs_to :brand, counter_cache: true
 	accepts_nested_attributes_for :brand
 	delegate :category, :to => :brand
+	validates :user_id, presence: true
 
 	# scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
 	scope :latest, -> { order("updated_at DESC") }
