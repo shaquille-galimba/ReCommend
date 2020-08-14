@@ -7,5 +7,12 @@
 <br>
 
 <% @brands.each do |brand| %>
-<%= render partial: "shared/name_list", locals: {zone: brand, path: new_brand_recommend_path(brand)} %>
+	<div class="lists">
+		<div>
+			<strong><%= link_to brand.name, brand, class: "links" %></strong> <small><%= pluralize(brand.recommends.size, "recommend")%></small>
+		</div>
+		<div>
+			<%= link_to "Recommend", new_brand_recommend_path(brand), class: "links" %>
+		</div>
+	</div>
 <% end %>
