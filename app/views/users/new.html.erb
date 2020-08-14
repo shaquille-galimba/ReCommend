@@ -1,39 +1,37 @@
-<div class="flexbox">
-	<h1>Sign up page</h1>
+<h1>Sign up page</h1>
 
-	<% if @user.errors.any? %>
+<% if @user.errors.any? %>
 	<% @user.errors.full_messages.each do |message| %>
-	<li><%= message %></li>
+		<li class="alert"><%= message %></li>
 	<% end %>
-	<% end %>
-	<br>
-	<div class="form">
-		<%= form_for @user, url: {action: "create"} do |f| %>
-		<div>
-			<%= f.label :email %>
-			<%= f.text_field :email %>
-		</div>
-		<br>
-		<div>
-			<%= f.label :username %>
-			<%= f.text_field :username %>
-		</div>
-		<br>
-		<div>
-			<%= f.label :password %>
-			<%= f.password_field :password %>
-		</div>
-		<br>
-		<div>
-			<%= f.label :password_confirmation %>
-			<%= f.password_field :password_confirmation %>
-		</div>
-		<br>
-		<%= f.submit 'Sign up', class: "btn button-blue" %>
-		<% end %>
+<% end %>
+<br>
+<div class="form">
+	<%= form_for @user, url: {action: "create"} do |f| %>
+	<div>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
 	</div>
 	<br>
 	<div>
-		<%= link_to "back to log in page", login_path, class: "links" %>
+		<%= f.label :username %>
+		<%= f.text_field :username %>
 	</div>
+	<br>
+	<div>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+	<br>
+	<div>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<br>
+	<%= f.submit 'Sign up', class: "btn button-blue" %>
+	<% end %>
+</div>
+<br>
+<div>
+	<%= link_to "back to log in page", login_path, class: "links" %>
 </div>
