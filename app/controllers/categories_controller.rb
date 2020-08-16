@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
 	def index
 		@categories = Category.most_popular
-		if params[:q] && !params[:q].empty?
+		if params[:q] && !params[:q].blank?
 			@categories = @categories.search(params[:q].downcase)
 		end
 	end

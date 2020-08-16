@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
-		if params[:q] && !params[:q].empty?
+		if params[:q] && !params[:q].blank?
 			@users = @users.search(params[:q].downcase)
 		end
 	end

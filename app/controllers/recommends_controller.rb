@@ -50,7 +50,7 @@ class RecommendsController < ApplicationController
 			@recommends = Recommend.latest.includes(:user, brand: :category)
 		end
 
-		if params[:q] && !params[:q].empty?
+		if params[:q] && !params[:q].blank?
 			@recommends = @recommends.search(params[:q].downcase)
 		end
 	end
