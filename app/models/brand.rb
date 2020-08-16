@@ -22,6 +22,4 @@ class Brand < ApplicationRecord
 	def destroy_empty_category
 		self.category.destroy if self.category.brands.blank?
 	end
-
-
 end
