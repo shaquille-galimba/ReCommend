@@ -13,7 +13,7 @@
 		<div class="navbar sticky">
 			<ul>
 				<% if logged_in? %>
-				<li style="border-right: 1px solid white"><%= link_to "New Recommendation", new_recommend_path %></li>
+				<li class="separate"><%= link_to "New Recommendation", new_recommend_path %></li>
 				<li><%= link_to "Home", recommends_path %></li>
 				<li><%= link_to current_user.username, user_recommends_path(current_user) %></li>
 				<div class="dropdown">

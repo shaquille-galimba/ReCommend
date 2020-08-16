@@ -1,7 +1,7 @@
 <h1><%= @brand.name %></h1>
 <div class="navbar mini">
 	<ul>
-		<li style="border-right: 1px solid #bbb"><%= link_to @brand.category_name, category_path(@brand.category)%></li>
+		<li class="separate"><%= link_to @brand.category_name, category_path(@brand.category)%></li>
 		<li><%= link_to "Recommend", new_brand_recommend_path(@brand) %></li>
 	</ul>
 </div>

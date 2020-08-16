@@ -2,7 +2,7 @@
 	<h1><%= @user.username %></h1>
 	<div class="navbar mini">
 		<ul>
-			<li><%= link_to "Info", user_path(@user)%></li>
+			<li class="separate"><%= link_to "Info", user_path(@user)%></li>
 			<div class="info right"><%= render partial: "shared/search", locals: {path: user_recommends_path(@user)} %></div>
 		</ul>
 	</div>

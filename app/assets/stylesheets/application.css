@@ -173,6 +173,10 @@
   text-decoration: none;
 }
 
+.navbar ul>.separate {
+	border-right: 1px solid white
+}
+
 .dropdown {
 	float: left;
 	overflow: hidden;
