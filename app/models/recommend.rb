@@ -7,7 +7,6 @@ class Recommend < ApplicationRecord
 
 	after_destroy :destroy_empty_brand
 
-	# scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
 	scope :latest, -> { order("updated_at DESC") }
 
 	def self.search(params)
