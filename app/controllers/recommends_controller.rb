@@ -28,6 +28,7 @@ class RecommendsController < ApplicationController
 			@recommend.brand_id = recommend_params[:brand_id]
 		else
 			@recommend.brand_attributes = recommend_params[:brand_attributes]
+			@category = @recommend.brand.category if params[:category_id]
 		end
 
 		if @recommend.save
