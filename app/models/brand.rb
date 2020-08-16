@@ -5,9 +5,11 @@ class Brand < ApplicationRecord
 	accepts_nested_attributes_for :category
 	validates :name, presence: true
 
+	after_destroy :destroy_empty_category
+
 	scope :most_popular, -> {joins(:recommends).group('brands.id').order('count(brands.id) desc')}
 	scope :top_three, -> {joins(:recommends).group('brands.id').order('count(brands.id) desc').limit(3)}
-	# scope :categorize, -> {joins(:category).order('categories.id')}
+
 
 	def category_name
 		category.name
@@ -17,5 +19,9 @@ class Brand < ApplicationRecord
 		left_joins(:category).where("LOWER(brands.name) LIKE :term OR LOWER(categories.name) LIKE :term", term: "%#{params}%")
 	end
 
-	# scope :list_by_category, -> (category) { where(category: category) }
+	def destroy_empty_category
+		self.category.destroy if self.category.brands.blank?
+	end
+
+
 end

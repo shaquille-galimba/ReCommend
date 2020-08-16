@@ -5,6 +5,8 @@ class Recommend < ApplicationRecord
 	delegate :category, :to => :brand
 	validates :user_id, presence: true
 
+	after_destroy :destroy_empty_brand
+
 	# scope :categorize, -> { includes(brand: :category).order('categories.name DESC')}
 	scope :latest, -> { order("updated_at DESC") }
 
@@ -22,5 +24,9 @@ class Recommend < ApplicationRecord
 
 	def category_name
 		category.name
+	end
+
+	def destroy_empty_brand
+		self.brand.destroy if self.brand.recommends.blank?
 	end
 end
