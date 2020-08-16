@@ -13,6 +13,16 @@ class Recommend < ApplicationRecord
 		left_joins(:brand => :category).left_joins(:user).where("LOWER(brands.name) LIKE :term OR LOWER(users.username) LIKE :term OR LOWER(categories.name) LIKE :term", term: "%#{params}%")
 	end
 
+	def brand_attributes=(brand)
+		if brand[:category_id]
+			@category = Category.find_by_id(brand[:category_id])
+			self.brand = @category.brands.find_or_initialize_by(name: brand[:name])
+		else
+			category = Category.find_or_create_by(name: brand[:category_attributes][:name])
+			self.brand = category.brands.find_or_initialize_by(name: brand[:name])
+		end
+	end
+
 	def user_name
 		user.username
 	end
