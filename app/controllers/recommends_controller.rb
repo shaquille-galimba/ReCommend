@@ -53,18 +53,12 @@ class RecommendsController < ApplicationController
 	end
 
 	def show
-		if !@recommend
-			page_not_found("Recommend", recommends_path)
-		end
+
 	end
 
 
 	def edit
-		if @recommend
-			authorize_user(@recommend.user)
-		else
-			page_not_found("Recommend", recommends_path)
-		end
+		authorize_user(@recommend.user)
 	end
 
 	def update
@@ -96,5 +90,6 @@ class RecommendsController < ApplicationController
 
 	def set_recommend
 		@recommend = Recommend.find_by(id: params[:id])
+		page_not_found("Recommend", recommends_path) if !@recommend
 	end
 end

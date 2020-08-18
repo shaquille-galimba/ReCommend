@@ -25,9 +25,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if !@user
-			page_not_found("User", users_path)
-		end
 	end
 
 	def edit
@@ -55,5 +52,6 @@ class UsersController < ApplicationController
 
 	def set_user
 		@user = User.find_by(id: params[:id])
+		page_not_found("User", users_path) if !@user
 	end
 end
