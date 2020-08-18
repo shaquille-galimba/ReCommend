@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	helper_method :current_user, :logged_in?, :authorize_user
+	helper_method :current_user, :logged_in?
 	before_action :require_login
 
 
@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
 			flash[:alert] = "Authorization Error!"
 			redirect_to recommends_path
 		end
+	end
+
+	def page_not_found(obj, path)
+		flash[:alert] = "#{obj} not found"
+		redirect_to path
 	end
 
 	private
