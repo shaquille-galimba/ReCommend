@@ -10,6 +10,16 @@ module RecommendsHelper
  	  end
 	end
 
+	def new_display_recommend_form
+		if @brand
+			form_with_brand
+		elsif @category
+			form_with_category
+		else
+			clean_recommend_form
+		end
+	end
+
 	def index_display_header
 		if @user
 			content_tag(:h1, "#{@user.username}") +
@@ -35,15 +45,25 @@ module RecommendsHelper
 		end
 	end
 
-	def display_new_recommend_form
-		if @brand
-			form_with_brand
-		elsif @category
-			form_with_category
-		else
-			clean_recommend_form
+	def index_display_user_name(recommend)
+		if !@user
+			content_tag(:h2, class: "links") do
+				link_to(recommend.user_name, user_recommends_path(recommend.user), class: "links")
+			end
 		end
 	end
+
+	def show_edit_and_delete_button(recommend)
+		if recommend.user == current_user
+			content_tag(:li) do
+				link_to("Edit", edit_recommend_path(recommend))
+			end +
+			content_tag(:li) do
+				link_to "Delete", recommend_path(recommend), method: :delete, data: {confirm: "Are you sure you want to delete this recommendation?"}
+			end
+		end
+	end
+
 
 	private
 
