@@ -128,5 +128,4 @@ module RecommendsHelper
 			end
 		end
 	end
-
 end

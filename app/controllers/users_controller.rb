@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 	skip_before_action :require_login, only: [:new, :create]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
 	def new
 		@user = User.new
 	end
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
 		@user.update(user_params)
 		redirect_to user_path(@user)
 	end
-
 
 	def destroy
 		@user.destroy

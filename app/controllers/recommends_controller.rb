@@ -47,7 +47,6 @@ class RecommendsController < ApplicationController
 
 	end
 
-
 	def edit
 		authorize_user(@recommend.user)
 	end
