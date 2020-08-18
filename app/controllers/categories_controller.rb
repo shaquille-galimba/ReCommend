@@ -6,10 +6,8 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-		if @category = Category.find_by_id(params[:id])
-			@brands = @category.brands.most_popular
-		else
-			page_not_found("Category", categories_path)
-		end
+		@category = Category.find_by_id(params[:id])
+		return page_not_found("Category", categories_path) if !@category
+		@brands = @category.brands.most_popular
 	end
 end

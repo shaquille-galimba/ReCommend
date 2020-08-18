@@ -2,9 +2,7 @@ class BrandsController < ApplicationController
 
 	def show
 		@brand = Brand.includes(recommends: :user).find_by(id: params[:id])
-		if !@brand
-			page_not_found("Brand", brands_path)
-		end
+		return page_not_found("Brand", brands_path) if !@brand
 	end
 
 	def index
