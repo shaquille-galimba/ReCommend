@@ -2,10 +2,7 @@
 <div class="navbar mini">
 	<ul>
 		<li><%= link_to "Recommendations", user_recommends_path(@user)%></li>
-		<% if @user == current_user %>
-			<li><%= link_to "Edit information", edit_user_path(@user) %></li>
-			<li><%= link_to "Delete account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your account?"} %></li>
-		<% end %>
+		<%= show_edit_info_and_delete_account_button %>
 	</ul>
 </div>
 <br>
