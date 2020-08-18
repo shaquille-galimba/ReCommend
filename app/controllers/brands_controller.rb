@@ -3,8 +3,7 @@ class BrandsController < ApplicationController
 	def show
 		@brand = Brand.includes(recommends: :user).find_by(id: params[:id])
 		if !@brand
-			flash[:alert] = "Brand not found"
-			redirect_to brands_path
+			page_not_found("Brand", brands_path)
 		end
 	end
 

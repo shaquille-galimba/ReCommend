@@ -26,17 +26,12 @@ class UsersController < ApplicationController
 
 	def show
 		if !@user
-			flash[:alert] = "User not found"
-			redirect_to recommends_path
+			page_not_found("User", users_path)
 		end
 	end
 
 	def edit
 		authorize_user(@user)
-		if !@user
-			flash[:alert] = "User not found"
-			redirect_to recommends_path
-		end
 	end
 
 	def update

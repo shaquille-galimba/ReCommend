@@ -6,15 +6,13 @@ class RecommendsController < ApplicationController
 			if @brand = Brand.find_by_id(params[:brand_id])
 				@recommend = @brand.recommends.build
 			else
-				flash[:alert] = "Brand not found"
-				redirect_to brands_path
+				page_not_found("Brand", brands_path)
 			end
 		elsif params[:category_id]
 			if @category = Category.find_by_id(params[:category_id])
 				@recommend = @category.brands.build.recommends.build
 			else
-				flash[:alert] = "Category not found"
-				redirect_to categories_path
+				page_not_found("Category", categories_path)
 			end
 		else
 			@recommend = Recommend.new
@@ -43,8 +41,7 @@ class RecommendsController < ApplicationController
 			if @user = User.find_by_id(params[:user_id])
 				@recommends = @user.recommends.latest.includes(brand: :category)
 			else
-				flash[:alert] = "User not found"
-				redirect_to user_path(current_user)
+				page_not_found("User", users_path)
 			end
 		else
 			@recommends = Recommend.latest.includes(:user, brand: :category)
@@ -57,14 +54,17 @@ class RecommendsController < ApplicationController
 
 	def show
 		if !@recommend
-			flash[:alert] = "Recommendation not found"
-			redirect_to recommends_path
+			page_not_found("Recommend", recommends_path)
 		end
 	end
 
 
 	def edit
-		authorize_user(@recommend.user)
+		if @recommend
+			authorize_user(@recommend.user)
+		else
+			page_not_found("Recommend", recommends_path)
+		end
 	end
 
 	def update
