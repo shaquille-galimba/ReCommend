@@ -10,10 +10,7 @@
 		<ul>
 			<li><%= link_to "View", recommend_path(@recommend) %></li>
 			<li><%= link_to "Recommend", new_brand_recommend_path(@recommend.brand) %></li>
-			<% if @recommend.user == current_user %>
-			<li><%= link_to "Edit", edit_recommend_path(@recommend) %></li>
-			<li><%= link_to "Delete", recommend_path(@recommend), method: :delete, data: {confirm: "Are you sure you want to delete this recommendation?"} %></li>
-			<% end %>
+			<%= show_edit_and_delete_button(@recommend) %>
 			<div class="info right"><%= pluralize(@recommend.brand.recommends.size, "recommend") %></div>
 		</ul>
 	</div>
