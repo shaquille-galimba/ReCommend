@@ -3,17 +3,13 @@ class RecommendsController < ApplicationController
 
 	def new
 		if params[:brand_id]
-			if @brand = Brand.find_by_id(params[:brand_id])
-				@recommend = @brand.recommends.build
-			else
-				page_not_found("Brand", brands_path)
-			end
+			@brand = Brand.find_by_id(params[:brand_id])
+			return page_not_found("Brand", brands_path) if !@brand
+			@recommend = @brand.recommends.build
 		elsif params[:category_id]
-			if @category = Category.find_by_id(params[:category_id])
-				@recommend = @category.brands.build.recommends.build
-			else
-				page_not_found("Category", categories_path)
-			end
+			@category = Category.find_by_id(params[:category_id])
+			return page_not_found("Category", categories_path) if !@category
+			@recommend = @category.brands.build.recommends.build
 		else
 			@recommend = Recommend.new
 			@recommend.build_brand.build_category
@@ -38,15 +34,12 @@ class RecommendsController < ApplicationController
 
 	def index
 		if params[:user_id]
-			if @user = User.find_by_id(params[:user_id])
-				@recommends = @user.recommends.latest.includes(brand: :category)
-			else
-				page_not_found("User", users_path)
-			end
+			@user = User.find_by_id(params[:user_id])
+			return page_not_found("User", users_path) if !@user
+			@recommends = @user.recommends.latest.includes(brand: :category)
 		else
 			@recommends = Recommend.latest.includes(:user, brand: :category)
 		end
-
 		@recommends = @recommends.search(params[:q].downcase) if params[:q] && !params[:q].blank?
 	end
 
