@@ -1,19 +1,4 @@
-<% if @user %>
-	<h1><%= @user.username %></h1>
-	<div class="navbar mini">
-		<ul>
-			<li class="separate"><%= link_to "Info", user_path(@user)%></li>
-			<div class="info right"><%= render partial: "shared/search", locals: {path: user_recommends_path(@user)} %></div>
-		</ul>
-	</div>
-<% else %>
-	<h1>Welcome to Recommend!</h1>
-	<div class="navbar mini">
-		<ul>
-			<div class="info right"><%= render partial: "shared/search", locals: {path: recommends_path} %></div>
-		</ul>
-	</div>
-<% end %>
+<%= index_display_header %>
 <br>
 <% @recommends.each do |recommend| %>
 	<div class="lists">
