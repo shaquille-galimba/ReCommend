@@ -81,6 +81,6 @@ class RecommendsController < ApplicationController
 
 	def set_recommend
 		@recommend = Recommend.find_by(id: params[:id])
-		page_not_found("Recommend", recommends_path) if !@recommend
+		return page_not_found("Recommend", recommends_path) if !@recommend
 	end
 end
