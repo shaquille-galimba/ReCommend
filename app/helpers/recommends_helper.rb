@@ -35,4 +35,78 @@ module RecommendsHelper
 		end
 	end
 
+	def display_new_recommend_form
+		if @brand
+			form_with_brand
+		elsif @category
+			form_with_category
+		else
+			clean_recommend_form
+		end
+	end
+
+	private
+
+	def form_with_brand
+		content_tag(:div, class: "form") do
+			form_for([@brand, @recommend]) do |f|
+				f.hidden_field(:brand_id) +
+				content_tag(:div) do
+					f.label(:comment) +
+					f.text_area(:comment)
+				end + tag("br") +
+				content_tag(:div) do
+					f.submit "Recommend", class: "btn button-blue"
+				end
+			end
+		end
+	end
+
+	def form_with_category
+		content_tag(:div, class: "form") do
+			form_for([@category, @recommend]) do |f|
+				f.fields_for(:brand) do |b|
+					b.hidden_field(:category_id) +
+					content_tag(:div) do
+						b.label(:name, "Brand") +
+						b.text_field(:name)
+					end + tag("br")
+				end +
+				content_tag(:div) do
+					f.label(:comment) +
+					f.text_area(:comment)
+				end + tag("br") +
+				content_tag(:div) do
+					f.submit "Recommend", class: "btn button-blue"
+				end
+			end
+		end
+	end
+
+	def clean_recommend_form
+		content_tag(:div, class: "form") do
+			form_for @recommend do |f|
+				f.fields_for(:brand) do |b|
+					content_tag(:div) do
+						b.fields_for(:category) do |c|
+							c.label(:name, "Category") +
+							c.text_field(:name)
+						end
+					end + tag("br") +
+					content_tag(:div) do
+						b.label(:name, "Brand") +
+						b.text_field(:name)
+					end + tag("br") +
+					content_tag(:div) do
+						f.label(:comment) +
+						f.text_area(:comment)
+					end + tag("br") +
+					content_tag(:div) do
+						f.submit "Recommend", class: "btn button-blue"
+					end
+				end
+			end
+		end
+	end
+
 end
