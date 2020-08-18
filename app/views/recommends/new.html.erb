@@ -1,12 +1,4 @@
-<% if @brand %>
-	<h1>Recommend <%= @brand.name %></h1>
-	<strong>Category: <%= @brand.category_name %></strong>
-<% elsif @category %>
-	<h1><%= @category.name %> recommendation</h1>
-<% else %>
-	<h1>New recommendation!</h1>
-<% end %>
-<br>
+<%= new_display_header %>
 	<%= render partial: "shared/errors", locals: {object: @recommend} %>
 <br>
 
