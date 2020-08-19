@@ -1,24 +1,30 @@
-# README
+# Recommend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A social-media-like app but for recommendations, where you can see other people's recommendations, may it be a book, movie, or a game. A user can recommend other user's recommendation, recommend another brand but with the same category, or recommend their own brand with a different category. This app looks to bring a single platform where you can search for a category(eg. restaurant) you would like to try and what other people's favorite brand(eg. Cheesecake Factory) it has to offer.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+To use this app, just clone this repo to your terminal.
 
-* System dependencies
+Then cd into the project folder.
 
-* Configuration
+Then run bundle to install necessary dependencies
 
-* Database creation
+	$ bundle install
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+After bundling, we have to set up the database and run the app to our local host.
 
-* Services (job queues, cache servers, search engines, etc.)
+Step 1 - Run in the terminal: `rails db:migrate` to setup database tables. <br>
+Step 2 - Run in the terminal: `rails db:seed` to populate existing data from the repo <br>
+Step 3 - Run in the terminal: `rails s` to start rails server <br>
+Step 4 - Navigate to http://localhost:3000 on your browser to start the app.
 
-* Deployment instructions
+## Contributing
 
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/shaquille-galimba/ReCommend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
