@@ -133,7 +133,7 @@
 .links {
   text-decoration: none;
   color: #385898;
-  margin: 8px auto;
+  margin-bottom: 8px;
 }
 
 .links:hover {
