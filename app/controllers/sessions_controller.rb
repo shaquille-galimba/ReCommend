@@ -22,17 +22,20 @@ class SessionsController < ApplicationController
 	end
 
 	def omniauth
-		@user = User.find_or_create_by(email: auth[:info][:email]) do |user|
+		@user = User.find_or_initialize_by(email: auth[:info][:email]) do |user|
 			user.username = auth[:info][:email].gsub("@gmail.com", "")
 			user.first_name = auth[:info][:first_name]
 			user.last_name = auth[:info][:last_name]
 			user.password = SecureRandom.hex(8)
 		end
-		if @user.save
+		if @user.new_record?
+			@user.save
+			session[:user_id] = @user.id
+			redirect_to edit_user_path(@user)
+		else
+			@user.save
 			session[:user_id] = @user.id
 			redirect_to recommends_path
-		else
-			redirect_to login_path
 		end
 	end
 
