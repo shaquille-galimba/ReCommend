@@ -6,7 +6,7 @@
 
 		<div class="label">
 			<strong>
-				<%= link_to recommend.brand_name, brand_path(recommend.brand), class: "links" %> <%= link_to "(#{recommend.category_name})", category_path(recommend.category), class: "links right" %>
+				<%= link_to recommend.brand_name, brand_path(recommend.brand), class: "links" %> <%= link_to "(#{recommend.category_name})", category_path(recommend.category), class: "links right category" %>
 			</strong>
 		</div>
 		<p><%= recommend.comment %></p>

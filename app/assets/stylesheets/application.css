@@ -140,6 +140,10 @@
   margin-bottom: 8px;
 }
 
+.category {
+	color: orange;
+}
+
 .links:hover {
   text-decoration: underline;
 }
