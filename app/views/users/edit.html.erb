@@ -9,6 +9,16 @@
 			<%= f.text_field :username %>
 		</div>
 		<br>
+		<div>
+			<%= f.label :first_name, "First name" %>
+			<%= f.text_field :first_name %>
+		</div>
+		<br>
+		<div>
+			<%= f.label :last_name, "Last name" %>
+			<%= f.text_field :last_name %>
+		</div>
+		<br>
 		<%= f.submit 'Edit', class: "btn button-blue" %>
 	<% end %>
 </div>
