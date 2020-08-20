@@ -24,6 +24,8 @@ class SessionsController < ApplicationController
 	def omniauth
 		@user = User.find_or_create_by(email: auth[:info][:email]) do |user|
 			user.username = auth[:info][:email].gsub("@gmail.com", "")
+			user.first_name = auth[:info][:first_name]
+			user.last_name = auth[:info][:last_name]
 			user.password = SecureRandom.hex(8)
 		end
 		if @user.save
