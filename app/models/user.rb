@@ -10,4 +10,8 @@ class User < ApplicationRecord
 	def self.search(params)
 		where("LOWER(username) LIKE :term OR LOWER(email) LIKE :term", term: "%#{params}%")
 	end
+
+	def full_name
+		first_name + " " + last_name
+	end
 end
