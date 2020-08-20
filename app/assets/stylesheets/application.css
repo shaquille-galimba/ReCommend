@@ -59,7 +59,7 @@
 	}
 
   h1 {
-    font-size: 40px;
+    font-size: 45px;
     line-height: 54px;
 		margin-bottom: 8px;
 		text-align: center;
@@ -193,7 +193,6 @@
   color: white;
   padding: 14px 16px;
   background-color: inherit;
-  font-family: inherit;
   margin: 0;
 }
 
