@@ -45,14 +45,6 @@ module RecommendsHelper
 		end
 	end
 
-	def index_display_user_name(recommend)
-		if !@user
-			content_tag(:strong) do
-				link_to(recommend.user_name, user_recommends_path(recommend.user), class: "links username")
-			end
-		end
-	end
-
 	def show_edit_and_delete_button(recommend)
 		if recommend.user == current_user
 			content_tag(:li) do
