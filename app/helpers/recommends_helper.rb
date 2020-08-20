@@ -22,7 +22,7 @@ module RecommendsHelper
 
 	def index_display_header
 		if @user
-			content_tag(:h1, "#{@user.username}") +
+			display_user_header +
 			content_tag(:div, class: "navbar mini") do
 				content_tag(:ul) do
 					content_tag(:li, class: "separate") do
@@ -43,6 +43,11 @@ module RecommendsHelper
 				end
 			end
 		end
+	end
+
+	def display_user_header
+		content_tag(:h1, "#{@user.full_name}") +
+		content_tag(:h3, "(#{@user.username})")
 	end
 
 	def show_edit_and_delete_button(recommend)
