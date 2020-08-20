@@ -47,8 +47,8 @@ module RecommendsHelper
 
 	def index_display_user_name(recommend)
 		if !@user
-			content_tag(:h2, class: "links") do
-				link_to(recommend.user_name, user_recommends_path(recommend.user), class: "links")
+			content_tag(:strong) do
+				link_to(recommend.user_name, user_recommends_path(recommend.user), class: "links username")
 			end
 		end
 	end

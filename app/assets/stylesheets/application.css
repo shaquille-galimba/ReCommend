@@ -142,6 +142,11 @@
 
 .category {
 	color: orange;
+	font-size: smaller;
+}
+
+.username {
+	color: black;
 }
 
 .links:hover {

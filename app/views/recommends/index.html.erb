@@ -2,14 +2,14 @@
 <br>
 <% @recommends.each do |recommend| %>
 	<div class="lists">
-		<%= index_display_user_name(recommend) %>
+		<h2><%= link_to recommend.brand_name, brand_path(recommend.brand), class: "links" %> <%= link_to "(#{recommend.category_name})", category_path(recommend.category), class: "links right category" %></h2>
 
+		<p><%= recommend.comment %></p>
 		<div class="label">
 			<strong>
-				<%= link_to recommend.brand_name, brand_path(recommend.brand), class: "links" %> <%= link_to "(#{recommend.category_name})", category_path(recommend.category), class: "links right category" %>
+				<%= link_to(recommend.user_name, user_recommends_path(recommend.user), class: "links username") %>
 			</strong>
 		</div>
-		<p><%= recommend.comment %></p>
 		<div class="navbar mini">
 			<ul>
 				<li><%= link_to "View", recommend_path(recommend) %></li>
