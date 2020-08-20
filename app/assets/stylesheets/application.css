@@ -32,7 +32,7 @@
     /* background-color: lightblue; */
 		background-color: #ccc;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 18px;
   }
 
@@ -71,6 +71,10 @@
     line-height: 36px;
     margin-bottom: 8px;
   }
+
+	h1, h2 {
+		font-family: 'Proza Libre', sans-serif;
+	}
 
   h3 {
     font-size: 18px;
@@ -302,4 +306,9 @@
 
 .right {
 	float: right;
+}
+
+textarea:focus, input:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #719ECE;
 }
