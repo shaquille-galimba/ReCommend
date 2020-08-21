@@ -18,7 +18,7 @@ class Recommend < ApplicationRecord
 			@category = Category.find_by_id(brand[:category_id])
 			self.brand = @category.brands.find_or_initialize_by(name: brand[:name])
 		else
-			category = Category.find_or_create_by(name: brand[:category_attributes][:name])
+			category = Category.find_or_create_by(name: brand[:category_attributes][:name].singularize)
 			self.brand = category.brands.find_or_initialize_by(name: brand[:name])
 		end
 	end
