@@ -29,18 +29,13 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    /* background-color: lightblue; */
-		/* background-color: #ccc; */
-		/* background-color: #2c313c; */
 		background-color: #15202b;
-    /* color: #fff; */
 		color: #ccc;
     font-family: 'Open Sans', sans-serif;
     line-height: 18px;
   }
 
   .wrapper {
-    /* background: #15202b; */
 		background: #2c313c;
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
@@ -48,7 +43,6 @@
     margin: 60px auto;
     max-width: 960px;
     padding: 2.25%;
-    /* 18px / 800px */
     width: 85%;
 		display: flex;
 		flex-direction: column;
@@ -94,21 +88,6 @@
   .content {
     float: left;
     width: 60%;
-    /* 480px / 800px */
-  }
-
-  .sidebar {
-    background: #eee;
-    border: 1px solid #ccc;
-    float: right;
-    padding: 2.08333333333%;
-    /* 5px / 240px */
-    width: 30%;
-    /* 240px / 800px */
-  }
-
-  .sidebar ul {
-    font-size: 14px;
   }
 
   .branding {
@@ -122,6 +101,7 @@
   }
 }
 
+/* Style of each recommend here */
 .lists {
 	padding: 10px 5px;
 	border: 1px solid #ccc;
@@ -131,16 +111,12 @@
 }
 
 .lists:hover {
-  /* cursor: pointer; */
   background-color: #192734;
-	/* border-color: #fff; */
 }
 
 .links {
   text-decoration: none;
-  /* color: #1b88cc; */
-	/* color: #fff; */
-	color: lightblue;
+	color: #00BCE1;
   margin-bottom: 8px;
 }
 
@@ -151,7 +127,6 @@
 
 .username {
 	color: #fff;
-	/* color: #1b88cc; */
 }
 
 .links:hover {
@@ -163,12 +138,12 @@
 	font-size: 20px;
 }
 
+/* navbar styles here */
 .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  /* background-color: #333; */
 	background-color: #385898;
 }
 
@@ -195,6 +170,35 @@
 	border-right: 1px solid white
 }
 
+.right {
+	float: right;
+}
+
+.info {
+	color: white;
+	padding: 7px 8px;
+}
+
+.mini {
+	width: 100%;
+}
+
+
+.mini ul {
+	border-radius: 4px;
+}
+
+.mini li a {
+	padding: 7px 8px;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navbar li a:hover {
+  background-color: lightblue;
+	color: #111;
+}
+
+/* dropdown styles here */
 .dropdown {
 	float: left;
 	overflow: hidden;
@@ -228,30 +232,7 @@
   display: block;
 }
 
-.info {
-	color: white;
-	padding: 7px 8px;
-}
-
-.mini {
-	width: 100%;
-}
-
-
-.mini ul {
-	border-radius: 4px;
-}
-
-.mini li a {
-	padding: 7px 8px;
-}
-
-/* Change the link color to #111 (black) on hover */
-.navbar li a:hover {
-  background-color: lightblue;
-	color: #111;
-}
-
+/* form styles here */
 .form {
 	width: 60%;
 }
@@ -268,24 +249,21 @@
 	height: 100px;
 }
 
+textarea:focus, input:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #719ECE;
+}
+
 .btn {
   border-radius: 4px;
-  /* text-transform: none; */
   display: block;
   text-align: center;
-  /* outline: none; */
   padding: 12px 22px 10px;
-  /* font-family: inherit; */
   text-decoration: none;
-  /* position: relative; */
-  /* white-space: nowrap; */
-  /* transition: all 0.12s; */
   cursor: pointer;
-  /* -webkit-user-select: none; */
   font-weight: bold;
   line-height: 1.25;
   font-size: 15px;
-  /* margin: 0; */
   width: 100%;
 }
 
@@ -301,12 +279,13 @@
   color: #00BCE1;
 }
 
+/* message and error styles here */
 .alert {
-	color: red;
+	color: #E94B3CFF;
 }
 
 .notice {
-	color: blue;
+	color: lightblue;
 }
 
 .field_with_errors {
@@ -314,14 +293,5 @@
 }
 
 .field_with_errors input {
-	border: 2px solid red;
-}
-
-.right {
-	float: right;
-}
-
-textarea:focus, input:focus {
-    outline: none !important;
-    box-shadow: 0 0 10px #719ECE;
+	border: 2px solid #E94B3CFF;
 }
