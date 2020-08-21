@@ -2,9 +2,15 @@
 
 A social-media-like app but for recommendations, where you can see other people's recommendations, may it be a book, movie, or a game. A user can recommend other user's recommendation, recommend another brand but with the same category, or recommend their own brand with a different category. This app looks to bring a single platform where you can search for a category(eg. restaurant) you would like to try and what other people's favorite brand(eg. Cheesecake Factory) it has to offer.
 
+## Using Heroku
+
+To use this app go to https://shaq-recommend.herokuapp.com/
+
+or install to your local environment:
+
 ## Installation
 
-To use this app, just clone this repo to your terminal.
+Clone this repo to your terminal.
 
 Then cd into the project folder.
 
