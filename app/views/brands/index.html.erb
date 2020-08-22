@@ -5,7 +5,9 @@
 <% @brands.each do |brand| %>
 	<div class="lists">
 		<div>
-			<strong><%= link_to brand.name, brand, class: "links" %></strong> <small><%= pluralize(brand.recommends.size, "recommend")%></small>
+			<strong><%= link_to brand.name, brand, class: "links" %></strong>
+			<small><%= pluralize(brand.recommends.size, "recommendation")%></small>
+			<small class="right"><%= link_to "(#{brand.category_name})", category_path(brand.category), class: "links category" %></small>
 		</div>
 		<div>
 			<%= link_to "Recommend", new_brand_recommend_path(brand), class: "links" %>

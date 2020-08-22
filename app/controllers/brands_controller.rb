@@ -6,7 +6,7 @@ class BrandsController < ApplicationController
 	end
 
 	def index
-		@brands = Brand.most_popular
+		@brands = Brand.includes(:category).most_popular
 		@brands = @brands.search(params[:q].downcase) if params[:q] && !params[:q].blank?
 	end
 end
