@@ -1,4 +1,4 @@
-<h1><%= @category.name %></h1>
+<h1><%= @category.name.pluralize %></h1>
 <div class="navbar mini">
 	<ul>
 		<li><%= link_to "Recommend", new_category_recommend_path(@category) %></li>
