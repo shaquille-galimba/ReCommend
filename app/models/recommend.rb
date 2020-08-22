@@ -4,6 +4,7 @@ class Recommend < ApplicationRecord
 	accepts_nested_attributes_for :brand
 	delegate :category, :to => :brand
 	validates :user_id, presence: true
+	validates_uniqueness_of :brand_id, scope: :user_id, message: "already recommended"
 
 	after_destroy :destroy_empty_brand
 
