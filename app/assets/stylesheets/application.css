@@ -78,10 +78,6 @@
     line-height: 36px;
   }
 
-  p {
-    margin: 8px auto;
-  }
-
   .main {
     overflow: hidden;
   }
@@ -104,7 +100,7 @@
 
 /* Style of each recommend here */
 .lists {
-	padding: 10px 5px;
+	padding: 10px 15px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	margin-bottom: 4px;
