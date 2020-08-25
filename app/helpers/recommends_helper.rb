@@ -26,7 +26,7 @@ module RecommendsHelper
 			content_tag(:div, class: "navbar mini") do
 				content_tag(:ul) do
 					content_tag(:li, class: "separate") do
-						link_to 'Info', user_path(@user)
+						link_to 'Information', user_path(@user)
 					end +
 					content_tag(:div, class: "info right") do
 						render partial: "shared/search", locals: {path:user_recommends_path(@user)}
