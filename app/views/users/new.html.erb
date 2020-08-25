@@ -36,6 +36,12 @@
 	<br>
 	<%= f.submit 'Sign up', class: "btn button-blue" %>
 	<% end %>
+	<br>
+	<p style="text-align: center;">- - or - -</p>
+	<br>
+	<div>
+		<%= button_to "Sign up with Google", '/auth/google_oauth2', class: "btn button-white" %>
+	</div>
 </div>
 <br>
 <div>
