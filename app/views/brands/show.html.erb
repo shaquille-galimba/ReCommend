@@ -6,7 +6,7 @@
 	</ul>
 </div>
 <br>
-<h1>Recommendations</h1>
+<h1>Recommendations:</h1>
 <% @brand.recommends.each do |recommend| %>
 	<ul class="lists">
 		<h2><%= link_to recommend.user_name, user_recommends_path(recommend.user), class: "links" %></h2>
